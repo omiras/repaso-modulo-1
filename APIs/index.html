@@ -40,6 +40,7 @@
             // 2. añadir un listener para detectar cuando cambia el valor del select, el evento 'change'
             selectCharacter.addEventListener('change', async function (event) {
                 const selectedValue = event.target.value;
+                // const selectedValue = selectedCharacter.value; es otra forma de obtener el valor seleccionado por el usuario
 
                 const url = "https://rickandmortyapi.com/api/character/" + selectedValue;
 
