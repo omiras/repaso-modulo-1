@@ -96,12 +96,29 @@ buttons.forEach(function (button) {
         displaySelections(userSelection, computerSelection);
         displayRandom(random);
 
+        // Cuando hacemos clic hay que deshabilitar los dos botones
+
+
+        // Apartado 1: Debemos usar setTimeout para ejecutar estas dos instrucciones una vez hayan pasado dos segundos
+
+        // Apartado 2: Tenemos que añadir el atributo 'disabled' al botón 'heads' y 'tails'
+        const btnHead = document.querySelector('#heads');
+        const btnTails = document.querySelector('#tails');
+
+        btnHead.disabled = true;
+        btnTails.disabled = true;
 
 
         //Adds the score of the player and computer
-        tallyScore(random, userPick, computerPick);
-        //resets animations
-        document.querySelector('#image').classList.remove('animate');
+        setTimeout(function () {
+            document.querySelector('#image').classList.remove('animate');
+            tallyScore(random, userPick, computerPick);
+            //resets animations
+            // Apartado 2: Vuelvo a habilitar los botones para que el usuario pueda clicarlos
+            btnHead.disabled = false;
+            btnTails.disabled = false;
+        }, 2000);
+
 
     })
 })
