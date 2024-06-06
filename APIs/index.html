@@ -26,14 +26,43 @@
         </select>
         <div id="characterInfo">
             <div class="character-details">
-                <h2></h2>
-                <img src="" alt="">
-                <p><strong>Estado:</strong></p>
-                <p><strong>Última ubicación vista:</strong> </p>
-                <p><strong>Primer episodio:</strong> </p>
+                <h2 id="name"></h2>
+                <img id="image" src="" alt="">
+                <p id="is-alive"><strong>Estado:</strong></p>
+                <p id="last-seen"><strong>Última ubicación vista:</strong> </p>
+                <!-- <p id="first-seen"><strong>Primer episodio:</strong> </p> -->
             </div>
         </div>
+        <script>
+            // 1. Seleccionar el <select> del DOM
+            const selectCharacter = document.querySelector('#characterSelector');
 
+            // 2. añadir un listener para detectar cuando cambia el valor del select, el evento 'change'
+            selectCharacter.addEventListener('change', async function (event) {
+                const selectedValue = event.target.value;
+
+                const url = "https://rickandmortyapi.com/api/character/" + selectedValue;
+
+                const response = await fetch(url);
+
+                const data = await response.json();
+
+                console.log("datos recibidos", data);
+
+                document.querySelector('#name').textContent = data.name;
+                document.querySelector('#image').src = data.image;
+                document.querySelector('#is-alive').innerHTML = `<strong>Estado</strong>: ${data.status}`;
+                document.querySelector('#last-seen').innerHTML = `<strong>Última vez visto en</strong>: ${data.location.name}`;
+
+            })
+
+            // 3. Dentro de la función que maneja el evento, tenemos que ejecutar la función fetch, y pasarla la URL.
+
+            // Esta URL tiene una parte estática y otra dinámica
+            // https://rickandmortyapi.com/api/character/2
+
+            // Cuando obtengamos los datos del API, hay que rellenar el  el div .character-details con la información que nos viene de la API
+        </script>
 </body>
 
 </html>
