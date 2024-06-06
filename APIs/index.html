@@ -28,7 +28,7 @@
             <div class="character-details">
                 <h2 id="name"></h2>
                 <img id="image" src="" alt="">
-                <p id="is-alive"><strong>Estado:</strong></p>
+                <p id="is-alive"><strong>Estado:</strong><span></span></p>
                 <p id="last-seen"><strong>Última ubicación vista:</strong> </p>
                 <!-- <p id="first-seen"><strong>Primer episodio:</strong> </p> -->
             </div>
@@ -51,7 +51,7 @@
 
                 document.querySelector('#name').textContent = data.name;
                 document.querySelector('#image').src = data.image;
-                document.querySelector('#is-alive').innerHTML = `<strong>Estado</strong>: ${data.status}`;
+                document.querySelector('#is-alive > span').textContent = data.status;
                 document.querySelector('#last-seen').innerHTML = `<strong>Última vez visto en</strong>: ${data.location.name}`;
 
             })
