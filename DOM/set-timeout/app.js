@@ -102,8 +102,7 @@ buttons.forEach(function (button) {
         // Apartado 1: Debemos usar setTimeout para ejecutar estas dos instrucciones una vez hayan pasado dos segundos
 
         // Apartado 2: Tenemos que añadir el atributo 'disabled' al botón 'heads' y 'tails'
-        const btnHead = document.querySelector('#heads');
-        const btnTails = document.querySelector('#tails');
+
 
         /** Iteramos sobre todos los botones obtenidos con el querySelectorAll. PAra cada botón, actualizamos su propiedad disabled a true */
         buttons.forEach(b => {
