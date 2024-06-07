@@ -105,8 +105,10 @@ buttons.forEach(function (button) {
         const btnHead = document.querySelector('#heads');
         const btnTails = document.querySelector('#tails');
 
-        btnHead.disabled = true;
-        btnTails.disabled = true;
+        /** Iteramos sobre todos los botones obtenidos con el querySelectorAll. PAra cada botón, actualizamos su propiedad disabled a true */
+        buttons.forEach(b => {
+            b.disabled = true;
+        })
 
 
         //Adds the score of the player and computer
@@ -115,8 +117,9 @@ buttons.forEach(function (button) {
             tallyScore(random, userPick, computerPick);
             //resets animations
             // Apartado 2: Vuelvo a habilitar los botones para que el usuario pueda clicarlos
-            btnHead.disabled = false;
-            btnTails.disabled = false;
+            buttons.forEach(b => {
+                b.disabled = false;
+            })
         }, 2000);
 
 
